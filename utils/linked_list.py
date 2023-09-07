@@ -1,6 +1,6 @@
 # Created by Adarsh N B at 9/6/2023
 
-# Description:
+# Description: Copied from educative.io
 """
 Creates a linked list
 """
@@ -13,6 +13,7 @@ class LinkedList:
     # __init__ will be used to make a LinkedList type object.
     def __init__(self):
         self.head = None
+        self.size = 0
 
     # insert_node_at_head method will insert a LinkedListNode at head
     # of a linked list.
@@ -22,6 +23,7 @@ class LinkedList:
             self.head = node
         else:
             self.head = node
+        self.size += 1
 
     # create_linked_list method will create the linked list using the
     # given integer array with the help of InsertAthead method.

@@ -3,6 +3,7 @@
 # Description:
 """
 Template for printing the linked list with forward arrows
+Arguments: head node of linked list
 """
 
 
