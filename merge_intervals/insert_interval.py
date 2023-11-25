@@ -6,6 +6,9 @@ Given a sorted list of non-overlapping intervals and a new interval, your task i
 correct position while ensuring that the resulting list of intervals remains sorted and non-overlapping.
 Each interval is a pair of non-negative numbers, the first being the start time and the second being
 the end time of the interval.
+
+Time complexity - O(n)
+Space complexity - O(1)
 """
 from typing import List
 
