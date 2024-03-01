@@ -21,7 +21,7 @@ def swap_char(word: str, first_index: int, second_index: int) -> str:
 def permute_string_rec(word: str, cur_index: int, result: List[str]) -> None:
 
     # base case to stop recursion
-    if cur_index == len(word) -1:
+    if cur_index == len(word) - 1:
         result.append(word)
         return
 
