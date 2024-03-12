@@ -9,6 +9,7 @@ Time complexity - O(n)
 Space complexity - O(n)
 """
 from typing import List
+from copy import deepcopy
 
 
 def max_profit_rec(prices: List[int], n: int) -> int:
@@ -56,7 +57,28 @@ def max_profit_tabulation(prices: List[int], n: int) -> int:
     return dp[0][1][2]
 
 
+def max_profit_tabulation_optimized(prices: List[int], n: int) -> int:
+    after = [[0 for _ in range(3)] for _ in range(2)]
+
+    for ind in range(n-1, -1, -1):
+        curr = [[0 for _ in range(3)] for _ in range(2)]
+        for buy in range(2):
+            for cap in range(1, 3):
+                if buy:
+                    option_buy = after[0][cap] - prices[ind]
+                    not_buy = after[1][cap]
+                    profit = max(option_buy, not_buy)
+                else:
+                    sell = prices[ind] + after[1][cap-1]
+                    not_sell = after[0][cap]
+                    profit = max(sell, not_sell)
+                curr[buy][cap] = profit
+        after = deepcopy(curr)
+    return after[1][2]
+
+
 if __name__ == "__main__":
     cost = [3, 3, 5, 0, 0, 3, 1, 4]
     print(max_profit_rec(cost, len(cost)))
     print(max_profit_tabulation(cost, len(cost)))
+    print(max_profit_tabulation_optimized(cost, len(cost)))
