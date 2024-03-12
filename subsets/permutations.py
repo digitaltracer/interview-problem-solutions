@@ -11,6 +11,15 @@ n -> length of the string
 from typing import List
 
 
+"""
+Let's explain the logic with an example of input [1, 2, 3]
+we will start swapping characters/int for each positions
+Let's start at index 0, we start by swapping 1 with 1 and then 1 with 2 and then 1 with 3
+that will give us [1, 2, 3] , [2, 1, 3] and [3, 2, 1] and the pointer at index 1
+Now, consider the first one [1, 2, 3] (at index 1), we start by swapping 2 with 2 and then 2 with 3 and so on.
+"""
+
+
 def swap_char(word: str, first_index: int, second_index: int) -> str:
     word_list = [i for i in word]
     word_list[first_index], word_list[second_index] = word_list[second_index], word_list[first_index]

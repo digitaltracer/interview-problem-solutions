@@ -12,6 +12,10 @@ Space complexity -
 from typing import List
 from copy import deepcopy
 
+"""
+This can also be placed under backtracking as we remove the current step before proceeding to the next one 
+"""
+
 
 def subsets_with_dup(nums: List[int]) -> List[List[int]]:
     nums.sort()

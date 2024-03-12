@@ -3,7 +3,7 @@
 # Description:
 """
 We are given an array, people, where people[i] is the weight of the i th person, and an infinite number of boats,
- where each boat can carry a maximum weight, limit. Each boat carries, at most, two people at the same time.
+where each boat can carry a maximum weight, limit. Each boat carries, at most, two people at the same time.
 This is provided that the sum of the weight of these people is under or equal to the weight limit.
 
 Time complexity - O(n logn) -- ( O(nlogn) + O(n) => O(nlogn) ) since sorting takes O(nlogn)

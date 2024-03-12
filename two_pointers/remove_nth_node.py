@@ -14,6 +14,15 @@ from interview_problem_solutions.utils.linked_list import LinkedList
 from interview_problem_solutions.utils.linked_list_node import LinkedListNode
 from interview_problem_solutions.utils.print_linked_list import print_list_with_forward_arrow
 
+"""
+1. Two pointers, right and left, are set at the head node.
+2. Move the right pointer n steps forward.
+3. If right reaches NULL, return head's next node.
+4. Move both right and left pointers forward till right reaches the last node.
+5. Relink the left node to the node at left's next to the next node.
+6. Return head.
+"""
+
 
 def remove_nth_last_node(linked_list: LinkedList, n) -> LinkedList:
 
@@ -27,6 +36,9 @@ def remove_nth_last_node(linked_list: LinkedList, n) -> LinkedList:
     # move n steps for the right pointers
     for _ in range(n):
         right = right.next
+
+    if not right:
+        return head.next
 
     # move both left and right pointers
     while right.next is not None:
