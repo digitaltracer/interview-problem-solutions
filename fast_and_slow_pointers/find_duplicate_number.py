@@ -29,3 +29,5 @@ def find_duplicate(nums):
     while slow != fast:
         slow = nums[slow]
         fast = nums[fast]
+
+# I did not complete this because the logic is very wierd and thought of not going ahead with this.
