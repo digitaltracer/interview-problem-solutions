@@ -3,26 +3,34 @@
 # Description:
 """
 Given an integer list `nums`, find the maximum values in all the contiguous sub-arrays (windows) of size `w`.
+
+Time complexity - O(n)
+Space complexity - O(w)
 """
 from typing import List
 from collections import deque
 
+"""
+The brute force approach would be to create a sliding window and keep on calculating the maximum of each window
+which would take the TC to O(n*w).
+Instead of this, we can keep track of indices in the current window and everytime we move to a new window, we clean
+up the current window. i.e, we remove indices whose values are lesser than the current one. 
+Doing this will make sure the first element(index) in the window is the largest.
+While looping each index/element, if the first index in the current window is the outgoing one, we remove that.
+For such an operation we need a data structure that has O(1) to remove at both ends. A double
+ended queue is perfect for this scenario.
+"""
+
 
 def cleanup(i, current_window, nums):
-    try:
-        while current_window and nums[i] >= nums[current_window[-1]]:
-            current_window.pop()
-    except BaseException as e:
-        print(nums)
-        print(current_window)
-        print(i)
-        print(e)
+    while current_window and nums[i] >= nums[current_window[-1]]:
+        current_window.pop()
 
 
 # function to find the maximum in all possible windows
 def find_max_sliding_window(nums: List[int], w: int) -> List[int]:
 
-    # lets address the boundary issues:
+    # let us address the boundary issues:
     # for empty array
     if len(nums) == 0:
         return []
@@ -69,9 +77,9 @@ if __name__ == "__main__":
         [-1, -1, -2, -4, -6, -7],
         [4, 4, 4, 4, 4, 4]
     ]
-    for i in range(len(nums_list)):
-        print(f"{i + 1}.\tInput array:\t{nums_list[i]}")
-        print(f"\tWindow size:\t{window_sizes[i]}")
-        output = find_max_sliding_window(nums_list[i], window_sizes[i])
+    for j in range(len(nums_list)):
+        print(f"{j + 1}.\tInput array:\t{nums_list[j]}")
+        print(f"\tWindow size:\t{window_sizes[j]}")
+        output = find_max_sliding_window(nums_list[j], window_sizes[j])
         print(f"\n\tMaximum in each sliding window:\t{output}")
         print("-"*100)
