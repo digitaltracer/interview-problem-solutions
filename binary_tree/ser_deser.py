@@ -10,6 +10,30 @@ Space complexity - O(n)
 from queue import Queue
 from interview_problem_solutions.utils.tree import Node
 
+"""
+                                                                                                                                                           
+                +----------------------------------------------------------------------------+                                                             
+                |   Perform depth first traversal and start serializing into a string/stream |                                                             
+                |                                                                            |                                                             
+                +----------------------------------------------------------------------------+                                                             
+    -                                                   |                                                                                                  
+                                                        |                                                                                                  
+                   +--------------------------------------------------------------------------------+                                                      
+                   |  Also serialize a marker to represent NULL pointer that helps in deserializing |                                                      
+                   +-----------------------------------|--------------------------------------------+                                                      
+                                                       |                                                                                                   
+                                                       |                                                                                                   
+-                           +---------------------------------------------------------+                                                                    
+                            |Deserialize the string/stream using pre-order traversal  |                                                                    
+                            +-------------------------|-------------------------------+                                                                    
+                                                      |                                                                                                    
+             -                                        |                                                                                                    
+                  +----------------------------------------------------------------------------------------------+                                         
+                  |During deserialization, create a new node for every non marker node using pre-order traversal |                                         
+                  +----------------------------------------------------------------------------------------------+  
+
+"""
+
 
 def serialize_binary_tree(root: Node) -> str:
     res = ""
